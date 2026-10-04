@@ -1,0 +1,13 @@
+# .gitignore for Android REVEX Project
+
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/capture
+.externalNativeBuild
+.cxx
+*.apk
+*.aar
