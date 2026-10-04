@@ -169,7 +169,7 @@ object CrosshairGenerator {
                 sharinganType = 1,
                 sharinganOpacity = 1.0f,
                 sharinganCenterEmpty = true,
-                centerStyle = CenterStyle.NONE,
+                centerStyle = CenterStyle.DOT,
                 centerColorArgb = 0xFFFFD700L,
                 centerSizeDp = 4f
             ),
@@ -203,7 +203,7 @@ object CrosshairGenerator {
                 sharinganType = 3,
                 sharinganOpacity = 1.0f,
                 sharinganCenterEmpty = true,
-                centerStyle = CenterStyle.NONE,
+                centerStyle = CenterStyle.DOT,
                 centerColorArgb = 0xFFFFD700L,
                 centerSizeDp = 4f
             ),
