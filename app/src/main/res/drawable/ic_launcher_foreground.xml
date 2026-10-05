@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Sharingan Outer Iris Circle -->
+    <path
+        android:fillColor="#FFB3001B"
+        android:strokeColor="#FFFF2A2A"
+        android:strokeWidth="2"
+        android:pathData="M54,26 A28,28 0 1,0 54,82 A28,28 0 1,0 54,26 Z" />
+    <!-- Sharingan Inner Tomoe Ring -->
+    <path
+        android:strokeColor="#FF111111"
+        android:strokeWidth="1.5"
+        android:pathData="M54,34 A20,20 0 1,0 54,74 A20,20 0 1,0 54,34 Z" />
+    <!-- Center Pupil -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M54,48 A6,6 0 1,0 54,60 A6,6 0 1,0 54,48 Z" />
+    <!-- 3 Tomoe Dots -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M54,36 A3.5,3.5 0 1,0 54,43 A3.5,3.5 0 1,0 54,36 Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M38,62 A3.5,3.5 0 1,0 38,69 A3.5,3.5 0 1,0 38,62 Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M70,62 A3.5,3.5 0 1,0 70,69 A3.5,3.5 0 1,0 70,62 Z" />
+</vector>
