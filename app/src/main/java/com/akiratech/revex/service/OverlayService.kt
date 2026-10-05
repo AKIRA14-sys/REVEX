@@ -46,7 +46,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LifecycleService
+import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import androidx.savedstate.SavedStateRegistry
+import androidx.savedstate.SavedStateRegistryController
+import androidx.savedstate.SavedStateRegistryOwner
+import androidx.savedstate.ViewTreeSavedStateRegistryOwner
 import com.akiratech.revex.R
 import com.akiratech.revex.RevexApplication
 import com.akiratech.revex.booster.LagBoosterManager
@@ -157,7 +162,11 @@ class OverlayService : LifecycleService() {
             gravity = Gravity.CENTER
         }
 
+        val savedStateOwner = OverlaySavedStateRegistryOwner(lifecycle)
+
         crosshairView = ComposeView(this).apply {
+            ViewTreeLifecycleOwner.set(this, this@OverlayService)
+            ViewTreeSavedStateRegistryOwner.set(this, savedStateOwner)
             setContent {
                 val activeId = remember { mutableStateOf(prefs.activeCrosshairId) }
                 val allPresets = remember { CrosshairGenerator.generateAllCrosshairs() }
@@ -202,7 +211,11 @@ class OverlayService : LifecycleService() {
             y = 200
         }
 
+        val savedStateOwner = OverlaySavedStateRegistryOwner(lifecycle)
+
         bubbleView = ComposeView(this).apply {
+            ViewTreeLifecycleOwner.set(this, this@OverlayService)
+            ViewTreeSavedStateRegistryOwner.set(this, savedStateOwner)
             setContent {
                 var isExpanded by remember { mutableStateOf(false) }
                 var deviceStats by remember { mutableStateOf(DeviceStats()) }
@@ -436,5 +449,16 @@ class OverlayService : LifecycleService() {
     override fun onDestroy() {
         removeOverlays()
         super.onDestroy()
+    }
+
+    private class OverlaySavedStateRegistryOwner(
+        override val lifecycle: androidx.lifecycle.Lifecycle
+    ) : SavedStateRegistryOwner {
+        private val controller = SavedStateRegistryController.create(this)
+        override val savedStateRegistry: SavedStateRegistry = controller.savedStateRegistry
+
+        init {
+            controller.performRestore(null)
+        }
     }
 }

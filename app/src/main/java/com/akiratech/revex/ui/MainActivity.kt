@@ -20,7 +20,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Crosshair
+import androidx.compose.material.icons.filled.GpsFixed
 import androidx.compose.material.icons.filled.FlashOn
 import androidx.compose.material.icons.filled.Games
 import androidx.compose.material.icons.filled.Home
@@ -234,7 +234,7 @@ class MainActivity : ComponentActivity() {
             NavEntry("HOME", Icons.Default.Home),
             NavEntry("GAMES", Icons.Default.Games),
             NavEntry("BOOST", Icons.Default.FlashOn),
-            NavEntry("CROSSHAIRS", Icons.Default.Crosshair),
+            NavEntry("CROSSHAIRS", Icons.Default.GpsFixed),
             NavEntry("DEVICE", Icons.Default.PhoneAndroid)
         )
 
